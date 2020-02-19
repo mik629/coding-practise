@@ -6,7 +6,7 @@
  * ListNode(int x) { val = x; }
  * }
  */
-class ListsMerger {
+public class ListsMerger {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
