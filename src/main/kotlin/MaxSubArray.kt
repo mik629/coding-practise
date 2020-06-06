@@ -30,10 +30,24 @@ class MaxSubArray {
         }
         return max
     }
+
+    fun maxSubArrayDivAndConq(nums: IntArray): Int {
+        if (nums.isEmpty()) {
+            return 0
+        }
+
+        var max = nums[0]
+        var nextMaxStart = nums[0]
+        for (i in 1 until nums.size) {
+            nextMaxStart = max(nextMaxStart + nums[i], nums[i])
+            max = max(max, nextMaxStart)
+        }
+        return max
+    }
 }
 
 fun main() {
     val solution = MaxSubArray()
-    println(solution.maxSubArrayBF(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
-    println(solution.maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
+    println(solution.maxSubArrayBF(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)) == 6)
+    println(solution.maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)) == 6)
 }

@@ -10,7 +10,6 @@ class HappyNumber {
         var next = n
         for (i in 0 until 1000) {
             next = sumSquaredDigits(next)
-            println(next)
             if (next == 1) {
                 return true
             }
